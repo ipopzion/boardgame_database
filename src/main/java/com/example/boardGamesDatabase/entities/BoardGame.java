@@ -4,24 +4,26 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bson.json.JsonObject;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.math.BigInteger;
-import java.util.List;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
-@Document(collection = "boardgames")
+@Document("boardgames")
 public class BoardGame {
     @Id
     private Integer id;
+    @Field
     private Boolean favourite = false;
+    @Field
     private Boolean own = false;
+    @Field
     private Integer totalRating = 0;
+    @Field
     private Integer numRating = 0;
+    @Field
     private String memo = "";
 }
